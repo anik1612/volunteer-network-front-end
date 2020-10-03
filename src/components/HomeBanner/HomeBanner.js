@@ -1,10 +1,27 @@
-import React, { useState } from 'react';
-import fakeData from '../../fakeData';
+import React, { useEffect, useState } from 'react';
 import Event from '../Event/Event';
 import './HomeBanner.css'
 
 const HomeBanner = () => {
-    const [volEvents, setVolEvents] = useState(fakeData)
+    const [volEvents, setVolEvents] = useState([])
+
+    // const handleEvent = () => {
+    //     fetch('http://localhost:5000/addEvents', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'Application/json',
+    //         },
+    //         body: JSON.stringify(fakeData)
+    //     })
+    // }
+
+    
+    useEffect(() => {
+        fetch('http://localhost:5000/events')
+        .then(res => res.json())
+        .then(data => setVolEvents(data))
+
+    }, [])
 
     return (
         <div className='home-banner container'>

@@ -1,17 +1,65 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import brandImg from '../../images/brandLogo.png'
 import googleIcon from '../../images/icons/google.png'
 import './Login.css'
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import firebaseConfig from './firebase.config';
+import { useState } from 'react';
+import { UserContext } from '../../App';
 
 const Login = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
+    const [user, setUser] = useState({
+        isSignIn: false,
+        name: '',
+        email: '',
+    })
+
+    let history = useHistory();
+    let location = useLocation();
+    let { from } = location.state || { from: { pathname: "/register" } };
+
+    // google login
     const handleGoogleLogin = () => {
-
+        if (firebase.apps.length === 0) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        const provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider)
+            .then(result => {
+                // The signed-in user info.
+                const { displayName, email } = result.user;
+                const signedInUser = {
+                    isSignedIn: true,
+                    name: displayName,
+                    email: email,
+                };
+                handleResponse(signedInUser, true)
+            })
+            .catch(function (error) {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+            });
     }
 
+    // handle response
+    const handleResponse = (res, redirect) => {
+        setUser(res);
+        setLoggedInUser(res);
+        if (redirect) {
+          history.replace(from);
+        }
+      }
+
+
+    // create account (this feature i will add soon!)
     const createAccount = () => {
-        console.log('clicked')
+        alert('sorry, this feature is not available now!')
     }
 
     return (
@@ -38,7 +86,7 @@ const Login = () => {
                         </button>
 
                         <div className='mt-3'>
-                           <span>Don't have an account?</span> <Link onClick={() => createAccount()}>Create an account</Link>
+                            <span>Don't have an account?</span> <Link onClick={() => createAccount()}>Create an account</Link>
                         </div>
                     </div>
                 </div>
