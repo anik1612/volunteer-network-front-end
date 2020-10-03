@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <div className="header-section">
             <nav class="navbar navbar-expand-lg navbar-light pt-3 container">
-                <Link class="navbar-brand" href="#">
+                <Link to='/' class="navbar-brand">
                     <img style={{height: "50px"}} src={brandImg} alt="brand-logo"/>
                 </Link>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,22 +16,22 @@ const Header = () => {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item ml-3">
-                            <Link class="nav-link normal-nav-link" href="#">Home</Link>
+                            <Link to='/home' class="nav-link normal-nav-link">Home</Link>
                         </li>
                         <li class="nav-item ml-3">
-                            <Link class="nav-link normal-nav-link" href="#">Donation</Link>
+                            <Link to='/donation' class="nav-link normal-nav-link">Donation</Link>
                         </li>
                         <li class="nav-item ml-3">
-                            <Link class="nav-link normal-nav-link" href="#">Events</Link>
+                            <Link to='/events' class="nav-link normal-nav-link">Events</Link>
                         </li>
                         <li class="nav-item ml-3">
-                            <Link class="nav-link normal-nav-link" href="#">Blog</Link>
+                            <Link to='/blog' class="nav-link normal-nav-link">Blog</Link>
                         </li>
                         <li class="nav-item ml-3">
-                            <Link class="nav-link btn btn-primary btn-lg text-white px-4" href="#">Register</Link>
+                            <Link to='/register' class="nav-link btn btn-primary btn-lg text-white px-4">Register</Link>
                         </li>
                         <li class="nav-item ml-3">
-                            <Link class="nav-link btn btn-dark btn-lg text-white px-4" href="#">Admin</Link>
+                            <Link to='/admin' class="nav-link btn btn-dark btn-lg text-white px-4">Admin</Link>
                         </li>
                     </ul>
                 </div>
