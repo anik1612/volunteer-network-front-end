@@ -9,22 +9,26 @@ import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Dashboard from './pages/Admin/Dashboard';
 import AddEvent from './pages/Admin/AddEvent';
+import Login from './pages/Login/Login';
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <Home/>
+          <Home />
         </Route>
         <Route path="/home">
-          <Home/>
+          <Home />
         </Route>
         <Route path="/admin">
-          <Dashboard/>
+          <Dashboard />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
         <Route path="/createEvent">
-          <AddEvent/>
+          <AddEvent />
         </Route>
         <Route path="*">
           <NoMatch />
