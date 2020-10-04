@@ -28,7 +28,7 @@ const HomeBanner = () => {
             {/* banner text & search box */}
             <div className='d-flex justify-content-center'>
                 <div className='banner-text'>
-                    <h1 className='text-center'>I GROW BY HELPING PEOPLE IN NEED.</h1>
+                    <h1 className='text-center mt-5 mt-sm-0 pt-sm-0 mt-md-0 pt-md-0 pt-5'>I GROW BY HELPING PEOPLE IN NEED.</h1>
                     <form className="form-inline my-2 my-lg-0 d-flex justify-content-center">
                         <input style={{ width: "370px" }} class="form-control mt-3 col-7" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-primary mt-3 search px-4" type="submit">Search</button>
@@ -37,7 +37,7 @@ const HomeBanner = () => {
             </div>
 
             {/* volunteer event list */}
-            <div className='row vol-event-list d-flex justify-content-center'>
+            <div className='row vol-event-list d-flex justify-content-center  mt-5 mt-sm-0 pt-sm-0 mt-md-0 pt-md-0 pt-5'>
                 {volEvents.map(volEvent => <Event volEvent={volEvent}/>)}
             </div>
         </div>

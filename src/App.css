@@ -1,3 +1,7 @@
 ::placeholder{
-    color: black!important;
+    color: rgb(36, 34, 34)!important;
+}
+
+.margin-1{
+    margin-bottom: 3px!important;
 }

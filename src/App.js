@@ -13,6 +13,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
+
 export const UserContext = createContext([])
 export const EventNameContext = createContext([])
 
