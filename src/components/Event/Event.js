@@ -20,12 +20,12 @@ const Event = ({ volEvent }) => {
 
     return (
         <div className="col-md-3 col-sm-4 col-10">
-            <div class="card-deck mb-3">
-                <div class="card">
+            <div className="card-deck mb-3">
+                <div className="card">
                     <Link onClick={() => handleEventLink(volEvent.name)} style={{textDecoration:'none'}}>
-                        <img src={volEvent.src} class="card-img-top" alt="..." />
-                        <div style={{backgroundColor:`${colorArr[randomColor]}`, borderRadius: '10px', padding: '15px'}} class="card-body">
-                            <h5 class="card-title text-center text-white mb-0">{volEvent.name}</h5>
+                        <img src={volEvent.src} className="card-img-top" alt="..." />
+                        <div style={{backgroundColor:`${colorArr[randomColor]}`, borderRadius: '10px', padding: '15px'}} className="card-body">
+                            <h5 className="card-title text-center text-white mb-0">{volEvent.name}</h5>
                         </div>
                     </Link>
                 </div>

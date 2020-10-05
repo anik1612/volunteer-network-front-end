@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
-import AddEvent from './pages/Admin/AddEvent';
 import Login from './pages/Login/Login';
 import Register from './pages/Register';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
@@ -49,9 +48,6 @@ function App() {
             </Route>
             <Route path="/events">
               <EventTasks />
-            </Route>
-            <Route path="/createEvent">
-              <AddEvent />
             </Route>
             <Route path="*">
               <NoMatch />

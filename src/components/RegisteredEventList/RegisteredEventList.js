@@ -2,24 +2,24 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
-const RegisteredEventList = ({ registerEvent, deleteRegisteredEvent }) => {
+const RegisteredEventList = ({ registeredEvent, deleteRegisteredEvent }) => {
     
     return (
-        <div className='row mx-2 mt-3'>
+        <div className='row mt-1 mx-2 mb-2 pt-0 px-1 pb-1 border-bottom d-flex align-items-center'>
             <div className='col-md-2'>
-                <p>{registerEvent.fullName}</p>
+                <p>{registeredEvent.fullName}</p>
             </div>
             <div className='col-md-3'>
-                <p>{registerEvent.email}</p>
+                <p>{registeredEvent.email}</p>
             </div>
             <div className='col-md-3'>
-                <p>{registerEvent.registerDate}</p>
+                <p>{registeredEvent.registerDate}</p>
             </div>
             <div className='col-md-3'>
-                <p>{registerEvent.eventName}</p>
+                <p>{registeredEvent.eventName}</p>
             </div>
             <div className='col-md-1'>
-                <button onClick={() => deleteRegisteredEvent(registerEvent._id)} className='btn text-danger btn-light'><FontAwesomeIcon icon={faTrash} /></button>
+                <button className='btn text-white btn-danger' onClick={() => deleteRegisteredEvent(registeredEvent._id)}><FontAwesomeIcon icon={faTrash} /></button>
             </div>
         </div>
     );

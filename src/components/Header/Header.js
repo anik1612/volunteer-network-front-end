@@ -17,32 +17,32 @@ const Header = () => {
 
     return (
         <div>
-            <nav class="navbar navbar-expand-lg navbar-light pt-3 container">
-                <Link to='/' class="navbar-brand">
+            <nav className="navbar navbar-expand-lg navbar-light pt-3 container">
+                <Link to='/' className="navbar-brand">
                     <img style={{height: "50px"}} src={brandImg} alt="brand-logo"/>
                 </Link>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item ml-3">
-                            <Link to='/home' class="nav-link normal-nav-link">Home</Link>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav ml-auto">
+                        <li className="nav-item ml-3">
+                            <Link to='/home' className="nav-link normal-nav-link">Home</Link>
                         </li>
-                        <li class="nav-item ml-3">
-                            <Link to='/donation' class="nav-link normal-nav-link">Donation</Link>
+                        <li className="nav-item ml-3">
+                            <Link to='/donation' className="nav-link normal-nav-link">Donation</Link>
                         </li>
-                        <li class="nav-item ml-3">
-                            <Link to='/events' class="nav-link normal-nav-link">Events</Link>
+                        <li className="nav-item ml-3">
+                            <Link to='/events' className="nav-link normal-nav-link">Events</Link>
                         </li>
-                        <li class="nav-item ml-3">
-                            <Link to='/blog' class="nav-link normal-nav-link">Blog</Link>
+                        <li className="nav-item ml-3">
+                            <Link to='/blog' className="nav-link normal-nav-link">Blog</Link>
                         </li>
-                        <li class="nav-item ml-3">
-                            {<Link onClick={handleSignOut} to='/register' class="nav-link btn btn-primary btn-lg text-white px-4">{loggedInUser.email || loggedInUser.name ? `${loggedInUser.name}/Logout` : 'Register'}</Link>}
+                        <li className="nav-item ml-3">
+                            {<Link onClick={handleSignOut} to='/register' className="nav-link btn btn-primary btn-lg text-white px-4">{loggedInUser.email || loggedInUser.name ? `${loggedInUser.name}/Logout` : 'Register'}</Link>}
                         </li>
-                        <li class="nav-item ml-3">
-                            <Link to='/admin' class="nav-link btn btn-dark btn-lg text-white px-4">Admin</Link>
+                        <li className="nav-item ml-3">
+                            <Link to='/admin' className="nav-link btn btn-dark btn-lg text-white px-4">Admin</Link>
                         </li>
                     </ul>
                 </div>
