@@ -38,10 +38,8 @@ const Register = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             history.push('/eventTasks/' + loggedInUser.name)
         })
-        history.push('/eventTasks/' + loggedInUser.name)
     };
 
     return (
