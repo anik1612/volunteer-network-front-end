@@ -6,7 +6,7 @@ const HomeBanner = () => {
     const [volEvents, setVolEvents] = useState([])
 
     // const handleEvent = () => {
-    //     fetch('http://localhost:5000/addEvents', {
+    //     fetch('http://volunteer-network-as.herokuapp.com/addEvents', {
     //         method: 'POST',
     //         headers: {
     //             'Content-Type': 'Application/json',
@@ -17,7 +17,7 @@ const HomeBanner = () => {
 
     
     useEffect(() => {
-        fetch('http://localhost:5000/events')
+        fetch('http://volunteer-network-as.herokuapp.com/events')
         .then(res => res.json())
         .then(data => setVolEvents(data))
 

@@ -6,13 +6,13 @@ const TaskList = ({ eventList }) => {
     const [events, setEvents] = useContext(EventContext);
 
     const refreshUI = () => {
-        fetch('http://localhost:5000/volTasks?email=' + loggedInUser.email)
+        fetch('http://volunteer-network-as.herokuapp.com/volTasks?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => setEvents(data))
     }
 
     const deleteEvent = (id) => {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`http://volunteer-network-as.herokuapp.com/delete/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

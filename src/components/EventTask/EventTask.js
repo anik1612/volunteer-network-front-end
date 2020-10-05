@@ -7,7 +7,7 @@ const EventTask = () => {
     const [events, setEvents] = useContext(EventContext);
 
     useEffect(() => {
-        fetch('http://localhost:5000/volTasks?email='+loggedInUser.email)
+        fetch('http://volunteer-network-as.herokuapp.com/volTasks?email='+loggedInUser.email)
         .then(res => res.json())
         .then(data => setEvents(data))
     }, [])

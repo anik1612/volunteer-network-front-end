@@ -5,7 +5,7 @@ const CreateNewEvent = () => {
     const { register, handleSubmit, errors } = useForm();
 
     const onSubmit = data => {
-        fetch('http://localhost:5000/addEvent', {
+        fetch('http://volunteer-network-as.herokuapp.com/addEvent', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json',
