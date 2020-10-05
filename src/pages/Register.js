@@ -29,7 +29,7 @@ const Register = () => {
 
     const onSubmit = (data) => {
         const volRegisterData = {...data, registerDate, src}
-        fetch('http://volunteer-network-as.herokuapp.com/volRegister', {
+        fetch('https://volunteer-network-as.herokuapp.com/volRegister', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -6,7 +6,7 @@ const VolRegisList = () => {
 
     // fetch data from already register event for admin 
     useEffect(() =>{
-        fetch('http://volunteer-network-as.herokuapp.com/allRegEvents')
+        fetch('https://volunteer-network-as.herokuapp.comm/allRegEvents')
         .then(res => res.json())
         .then(data => {
             setRegisteredEvents(data);
@@ -15,7 +15,7 @@ const VolRegisList = () => {
 
     // for refresh User Interface
     const refreshUI = () => {
-        fetch('http://volunteer-network-as.herokuapp.com/allRegEvents')
+        fetch('https://volunteer-network-as.herokuapp.comm/allRegEvents')
         .then(res => res.json())
         .then(data => {
             setRegisteredEvents(data);
@@ -24,7 +24,7 @@ const VolRegisList = () => {
 
     // delete req to server
     const deleteRegisteredEvent = (id) => {
-        fetch(`http://volunteer-network-as.herokuapp.com/deleteRegisteredTask/${id}`, {
+        fetch(`https://volunteer-network-as.herokuapp.comm/deleteRegisteredTask/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
