@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { EventNameContext, UserContext } from '../App';
+import { Link, useHistory } from 'react-router-dom';
+import { SelectedEventContext, UserContext } from '../App';
 import brandImg from '../images/brandLogo.png'
 import 'date-fns';
 import Grid from '@material-ui/core/Grid';
@@ -14,7 +14,10 @@ import {
 
 const Register = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const [eventName, setEventName] = useContext(EventNameContext);
+    const [selectedEvent, setselectedEvent] = useContext(SelectedEventContext);
+    const src = selectedEvent.src;
+
+    let history = useHistory()
     const { register, handleSubmit, errors } = useForm(); // initialize the hook
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
 
@@ -25,8 +28,20 @@ const Register = () => {
     };
 
     const onSubmit = (data) => {
-        const registerData = {...data, registerDate}
-        
+        const volRegisterData = {...data, registerDate, src}
+        fetch('http://localhost:5000/volRegister', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(volRegisterData)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            history.push('/eventTasks/' + loggedInUser.name)
+        })
+        history.push('/eventTasks/' + loggedInUser.name)
     };
 
     return (
@@ -63,7 +78,7 @@ const Register = () => {
                         </div>
                         <input className='form-control mb-2' type="text" name="description" id="" placeholder='Description' ref={register({required: true, maxLength: 250})} />
                         <p className='text-danger margin-1'>{errors.description && <span>* This field is required</span>}</p>
-                        <input className='form-control mb-2' type="text" name="eventName" id="" placeholder='Event Name' defaultValue={eventName} ref={register({required: true})} />
+                        <input className='form-control mb-2' type="text" name="eventName" id="" placeholder='Event Name' defaultValue={selectedEvent.name} ref={register({required: true})} />
                         <p className='text-danger margin-1'>{errors.eventName && <span>* This field is required</span>}</p>
                         <input className='btn btn-primary btn-block font-weight-bold' type="submit" value="Registration" />
                     </form>

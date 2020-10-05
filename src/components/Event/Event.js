@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import './Event.css'
-import { EventNameContext } from '../../App';
+import { SelectedEventContext } from '../../App';
 
 const Event = ({ volEvent }) => {
-    const [eventName, setEventName] = useContext(EventNameContext);
+    const [selectedEvent, setSelectedEvent] = useContext(SelectedEventContext);
 
     // random color array for event card text background
     const colorArr = ['#FFBD3E', '#FF7044', '#3F90FC', '#421FCF']
@@ -12,10 +12,10 @@ const Event = ({ volEvent }) => {
 
     // dynamic route depend event name
     let history = useHistory()
-    const handleEventLink = (eventName) => {
-        const eventLink = eventName.split(' ')
+    const handleEventLink = (selectedEvent) => {
+        const eventLink = selectedEvent.split(' ')
         history.push('/register/' + eventLink[0].toLowerCase() + eventLink[1]);
-        setEventName(eventName);
+        setSelectedEvent(volEvent);
     }
 
     return (

@@ -7,23 +7,26 @@ import {
 } from "react-router-dom";
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
-import Dashboard from './pages/Admin/Dashboard';
 import AddEvent from './pages/Admin/AddEvent';
 import Login from './pages/Login/Login';
 import Register from './pages/Register';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-
+import EventTasks from './pages/EventTasks';
+import AdminDashboard from './pages/Admin/AdminDashboard';
 
 export const UserContext = createContext([])
-export const EventNameContext = createContext([])
+export const SelectedEventContext = createContext([])
+export const EventContext = createContext([])
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
-  const [eventName, setEventName] = useState('')
+  const [selectedEvent, setSelectedEvent] = useState('')
+  const [events, setEvents] = useState([])
 
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <EventNameContext.Provider value={[eventName, setEventName]}>
+      <SelectedEventContext.Provider value={[selectedEvent, setSelectedEvent]}>
+      <EventContext.Provider value={[events, setEvents]}>
         <Router>
           <Switch>
             <Route exact path="/">
@@ -33,13 +36,19 @@ function App() {
               <Home />
             </Route>
             <Route path="/admin">
-              <Dashboard />
+              <AdminDashboard />
             </Route>
             <Route path="/login">
               <Login />
             </Route>
-            <Route path="/register">
+            <PrivateRoute path="/register">
               <Register />
+            </PrivateRoute>
+            <Route path="/eventTasks">
+              <EventTasks />
+            </Route>
+            <Route path="/events">
+              <EventTasks />
             </Route>
             <Route path="/createEvent">
               <AddEvent />
@@ -49,7 +58,8 @@ function App() {
             </Route>
           </Switch>
         </Router>
-      </EventNameContext.Provider>
+        </EventContext.Provider>
+      </SelectedEventContext.Provider>
     </UserContext.Provider>
   );
 }

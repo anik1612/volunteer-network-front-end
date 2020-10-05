@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 import brandImg from '../../images/brandLogo.png'
 import './Header.css'
 
 const Header = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+    const handleSignOut = () => {
+        setLoggedInUser({
+            isSignedIn: false,
+            name: '',
+            email: '',
+        })
+    }
+
     return (
-        <div className="header-section">
+        <div>
             <nav class="navbar navbar-expand-lg navbar-light pt-3 container">
                 <Link to='/' class="navbar-brand">
                     <img style={{height: "50px"}} src={brandImg} alt="brand-logo"/>
@@ -28,7 +39,7 @@ const Header = () => {
                             <Link to='/blog' class="nav-link normal-nav-link">Blog</Link>
                         </li>
                         <li class="nav-item ml-3">
-                            <Link to='/register' class="nav-link btn btn-primary btn-lg text-white px-4">Register</Link>
+                            {<Link onClick={handleSignOut} to='/register' class="nav-link btn btn-primary btn-lg text-white px-4">{loggedInUser.email || loggedInUser.name ? `${loggedInUser.name}/Logout` : 'Register'}</Link>}
                         </li>
                         <li class="nav-item ml-3">
                             <Link to='/admin' class="nav-link btn btn-dark btn-lg text-white px-4">Admin</Link>

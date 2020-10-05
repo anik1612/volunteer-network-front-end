@@ -4,7 +4,7 @@ import HomeBanner from '../components/HomeBanner/HomeBanner';
 
 const Home = () => {
     return (
-        <div>
+        <div className="header-section">
             <Header />
             <HomeBanner />
         </div>
