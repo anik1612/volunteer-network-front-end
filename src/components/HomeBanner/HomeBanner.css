@@ -1,6 +1,6 @@
 .banner-text{
-    position: absolute;
-    top: 25%;
+    position: relative;
+    top: 35%;
 }
 
 .banner-text .form-control{
@@ -14,10 +14,18 @@
 }
 
 .vol-event-list {
-    position: absolute !important;
-    top: 60%;
+    position: relative !important;
+    top: 80%;
 }
 
 .home-banner .row{
     margin-right: 30px;
+}
+
+.home-banner{
+    margin-top: 50px;
+}
+
+.custom-input{
+    margin-bottom: 80px!important;
 }
